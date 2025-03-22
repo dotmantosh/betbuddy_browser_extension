@@ -3,7 +3,12 @@
   "name": "Bet Buddy",
   "version": "1.0.0",
   "description": "A Buddy that accompanies you through out your betting journey.",
-  "permission": ["storage", "activeTab", "scripting", "tabs"],
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "host_permissions": [
+    "*://*.sportybet.com/*",
+    "*://*.betway.com/*",
+    "*://*.bet9ja.com/*"
+  ],
   "icons": {
     "16": "icon.png",
     "48": "icon.png"
@@ -12,5 +17,8 @@
     "default_title": "Bet Buddy",
     "default_popup": "popup.html",
     "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
   }
 }
