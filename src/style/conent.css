@@ -1,0 +1,21 @@
+.betbuddy_icon {
+  transition: all 0.2s ease-out;
+  /* width: "30px";
+  height: "30px"; */
+  /* z-index: 1000; */
+  /* display: block; */
+  /* background-color: #f0f0f0; */
+}
+.betbuddy_icon:focus {
+  transform: translateY(2px);
+  cursor: pointer;
+}
+.betbuddy_icon:active {
+  transform: translateY(2px);
+  cursor: pointer;
+}
+
+/* .betbuddy_icon:hover {
+  transform: translateY(4px);
+  cursor: pointer;
+} */

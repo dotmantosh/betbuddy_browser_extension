@@ -175,50 +175,50 @@
 //   return true; // Keep channel open for async response
 // });
 
-import { detectSite } from './config/siteDetector';
+// import { detectSite } from './config/siteDetector';
 
-chrome.tabs.onUpdated.addListener((
-  tabId: number,
-  changeInfo: chrome.tabs.TabChangeInfo,
-  tab: chrome.tabs.Tab
-) => {
-  if (changeInfo.status === 'complete' && tab.url) {
-    const site = detectSite(tab.url);
-    console.log(`[Background] Detected site: ${site || 'none'} for URL: ${tab.url}`);
-    if (site) {
-      console.log(`[Background] Injecting content script for site: ${site}`);
-      chrome.scripting.executeScript({
-        target: { tabId: tabId },
-        files: ['content.js'],
-      }, () => {
-        if (chrome.runtime.lastError) {
-          console.error('[Background] Injection failed:', chrome.runtime.lastError.message);
-        } else {
-          console.log('[Background] Successfully injected content.js');
-          chrome.scripting.executeScript({
-            target: { tabId: tabId },
-            func: (siteId: string) => {
-              (window as any).runSiteLogic(siteId);
-            },
-            args: [site],
-          });
-        }
-      });
-    } else {
-      console.log('[Background] No supported site detected');
-    }
-  }
-});
+// chrome.tabs.onUpdated.addListener((
+//   tabId: number,
+//   changeInfo: chrome.tabs.TabChangeInfo,
+//   tab: chrome.tabs.Tab
+// ) => {
+//   if (changeInfo.status === 'complete' && tab.url) {
+//     const site = detectSite(tab.url);
+//     console.log(`[Background] Detected site: ${site || 'none'} for URL: ${tab.url}`);
+//     if (site) {
+//       console.log(`[Background] Injecting content script for site: ${site}`);
+//       chrome.scripting.executeScript({
+//         target: { tabId: tabId },
+//         files: ['content.js'],
+//       }, () => {
+//         if (chrome.runtime.lastError) {
+//           console.error('[Background] Injection failed:', chrome.runtime.lastError.message);
+//         } else {
+//           console.log('[Background] Successfully injected content.js');
+//           chrome.scripting.executeScript({
+//             target: { tabId: tabId },
+//             func: (siteId: string) => {
+//               (window as any).runSiteLogic(siteId);
+//             },
+//             args: [site],
+//           });
+//         }
+//       });
+//     } else {
+//       console.log('[Background] No supported site detected');
+//     }
+//   }
+// });
 
-chrome.runtime.onMessage.addListener((
-  message: { action: string; url: string },
-  sender: chrome.runtime.MessageSender,
-  sendResponse: (response: { script?: string }) => void
-) => {
-  console.log('[Background] Received message:', message);
-  if (message.action === 'getInjectedScript') {
-    const site = detectSite(message.url);
-    sendResponse({ script: site ? `content.js (running ${site})` : 'None' });
-  }
-  return true;
-});
+// chrome.runtime.onMessage.addListener((
+//   message: { action: string; url: string },
+//   sender: chrome.runtime.MessageSender,
+//   sendResponse: (response: { script?: string }) => void
+// ) => {
+//   console.log('[Background] Received message:', message);
+//   if (message.action === 'getInjectedScript') {
+//     const site = detectSite(message.url);
+//     sendResponse({ script: site ? `content.js (running ${site})` : 'None' });
+//   }
+//   return true;
+// });

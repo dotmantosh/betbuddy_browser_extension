@@ -1,5 +1,5 @@
 import React from 'react';
-import { IPopupProps } from '../interfaces/IPopupProps';
+import { IPopupProps } from '../../interfaces/IPopupProps';
 
 const BetWayPopup: React.FC<IPopupProps> = ({ url }) => {
   return (

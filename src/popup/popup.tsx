@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import SportyBetPopup from './SportyBetPopup';
-import Bet9jaPopup from './Bet9jaPopup';
-import BetwayPopup from './BetWayPopup';
-import UnsupportedPopup from './UnsupportedPopup';
+import SportyBetPopup from './components/SportyBetPopup';
+import Bet9jaPopup from './components/Bet9jaPopup';
+import BetwayPopup from './components/BetWayPopup';
+import UnsupportedPopup from './components/UnsupportedPopup';
 import { detectSite } from '../config/siteDetector';
 import '../assets/tailwind.css'
 
@@ -28,36 +28,26 @@ function Popup({ url }: { url: string }) {
   const SiteComponent = siteComponents[site] || UnsupportedPopup;
   const [injectedScript, setInjectedScript] = useState<string | null>('Loading...');
 
-  useEffect(() => {
-    console.log('[Popup] Sending message for URL:', url);
-    chrome.runtime.sendMessage({ action: 'getInjectedScript', url }, (response) => {
-      if (chrome.runtime.lastError) {
-        console.error('[Popup] Message error:', chrome.runtime.lastError.message);
-        setInjectedScript('Error: Background not responding');
-      } else {
-        console.log('[Popup] Received response:', response);
-        setInjectedScript(response?.script || 'None');
-      }
-    });
-  }, [url]);
+  // useEffect(() => {
+  //   console.log('[Popup] Sending message for URL:', url);
+  //   chrome.runtime.sendMessage({ action: 'getInjectedScript', url }, (response) => {
+  //     if (chrome.runtime.lastError) {
+  //       console.error('[Popup] Message error:', chrome.runtime.lastError.message);
+  //       setInjectedScript('Error: Background not responding');
+  //     } else {
+  //       console.log('[Popup] Received response:', response);
+  //       setInjectedScript(response?.script || 'None');
+  //     }
+  //   });
+  // }, [url]);
   return (
     <div>
       {/* Pass url as a prop if components need it */}
+      <img src="buddy.png" alt="" />
       <SiteComponent url={url} />
-      <p>Injected Script: {injectedScript}</p>
+      <p className={"text-green-500"}>Injected Script: {injectedScript}</p>
     </div>
   );
 }
 
-function initPopup() {
-  const container = document.createElement('div');
-  document.body.appendChild(container);
-  const root = createRoot(container);
-
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    const currentUrl = tabs[0]?.url || '';
-    root.render(<Popup url={currentUrl} />);
-  });
-}
-
-initPopup();
+export default Popup

@@ -8,12 +8,11 @@ module.exports = {
   mode: "development",
   devtool: "cheap-module-source-map",
   entry: {
-    popup: path.resolve("./src/popup/popup.tsx"),
+    popup: path.resolve("./src/popup/index.tsx"),
     background: path.resolve("./src/background.ts"),
-    content: path.resolve("./src/content.ts"),
-    sportybet: path.resolve("./src/popup/SportyBetPopup.tsx"),
-    betway: path.resolve("./src/popup/BetWayPopup.tsx"),
-    bet9ja: path.resolve("./src/popup/Bet9jaPopup.tsx"),
+    options: path.resolve("./src/options/index.tsx"),
+    newTab: path.resolve("./src/tabs/index.tsx"),
+    content: path.resolve("./src/content.tsx"),
   },
   module: {
     rules: [
@@ -39,6 +38,10 @@ module.exports = {
         ],
         test: /\.css$/,
       },
+      {
+        type: "assets/resource",
+        test: /\.(png|svg|jpg|jpeg|gif)$/,
+      },
     ],
   },
   plugins: [
@@ -50,21 +53,38 @@ module.exports = {
         },
       ],
     }),
-    new HtmlPlugin({
-      title: "Bet Buddy",
-      filename: "popup.html",
-      chunks: ["popup"],
-    }),
+    // new HtmlPlugin({
+    //   title: "Bet Buddy",
+    //   filename: "popup.html",
+    //   chunks: ["popup", ""],
+    // }),
+    ...getHtmlPlugins(["popup", "options", "newTab"]),
   ],
 
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".css"],
   },
   output: {
     filename: "[name].js",
   },
+  optimization: {
+    splitChunks: {
+      chunks(chunk) {
+        return chunk.name !== "content";
+      },
+    },
+  },
 };
 
+function getHtmlPlugins(chunks) {
+  return chunks.map((name) => {
+    return new HtmlPlugin({
+      title: "Bet Buddy",
+      filename: `${name}.html`,
+      chunks: [name, ""],
+    });
+  });
+}
 // const path = require('path');
 
 // module.exports = {

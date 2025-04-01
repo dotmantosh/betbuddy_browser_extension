@@ -2,23 +2,36 @@
   "manifest_version": 3,
   "name": "Bet Buddy",
   "version": "1.0.0",
+  "author": "Dotmantosh @ Bet Buddy",
   "description": "A Buddy that accompanies you through out your betting journey.",
-  "permissions": ["storage", "activeTab", "scripting", "tabs"],
-  "host_permissions": [
-    "*://*.sportybet.com/*",
-    "*://*.betway.com/*",
-    "*://*.bet9ja.com/*"
-  ],
+  "permissions": ["tabs", "storage", "activeTab", "scripting", "identity"],
+  "host_permissions": ["*://*/*"],
   "icons": {
     "16": "icon.png",
-    "48": "icon.png"
+    "48": "icon.png",
+    "128": "icon.png"
   },
   "action": {
     "default_title": "Bet Buddy",
     "default_popup": "popup.html",
     "default_icon": "icon.png"
   },
+  "options_ui": {
+    "page": "options.html"
+  },
   "background": {
     "service_worker": "background.js"
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.sportybet.com/*"],
+      "js": ["content.js"]
+    }
+  ]
 }
