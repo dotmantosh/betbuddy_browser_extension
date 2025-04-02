@@ -38,11 +38,47 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.betbuddy_icon {
   cursor: pointer;
 }
 
+.betbuddy_sportydropdown_container {
+  margin-top: 5px;
+  transition: all 0.2s ease-out;
+}
+
+.betbuddy_sportydropdown {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  /* background-color: inherit; */
+  /* color: #fff; */
+}
+
+.betbuddy_sportydropdown_container:focus {
+  transform: translateY(2px);
+  cursor: pointer;
+}
+.betbuddy_sportydropdown_container:active {
+  transform: translateY(2px);
+  cursor: pointer;
+}
+
+.betbuddy_sportydropdown_container ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.betbuddy_sportydropdown_container ul .betbuddy_sportydropdown_item {
+  cursor: pointer;
+}
+
 /* .betbuddy_icon:hover {
   transform: translateY(4px);
   cursor: pointer;
 } */
-`, "",{"version":3,"sources":["webpack://./src/style/conent.css"],"names":[],"mappings":"AAAA;EACE,6BAA6B;EAC7B;mBACiB;EACjB,mBAAmB;EACnB,oBAAoB;EACpB,+BAA+B;AACjC;AACA;EACE,0BAA0B;EAC1B,eAAe;AACjB;AACA;EACE,0BAA0B;EAC1B,eAAe;AACjB;;AAEA;;;GAGG","sourcesContent":[".betbuddy_icon {\r\n  transition: all 0.2s ease-out;\r\n  /* width: \"30px\";\r\n  height: \"30px\"; */\r\n  /* z-index: 1000; */\r\n  /* display: block; */\r\n  /* background-color: #f0f0f0; */\r\n}\r\n.betbuddy_icon:focus {\r\n  transform: translateY(2px);\r\n  cursor: pointer;\r\n}\r\n.betbuddy_icon:active {\r\n  transform: translateY(2px);\r\n  cursor: pointer;\r\n}\r\n\r\n/* .betbuddy_icon:hover {\r\n  transform: translateY(4px);\r\n  cursor: pointer;\r\n} */\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/style/conent.css"],"names":[],"mappings":"AAAA;EACE,6BAA6B;EAC7B;mBACiB;EACjB,mBAAmB;EACnB,oBAAoB;EACpB,+BAA+B;AACjC;AACA;EACE,0BAA0B;EAC1B,eAAe;AACjB;AACA;EACE,0BAA0B;EAC1B,eAAe;AACjB;;AAEA;EACE,eAAe;EACf,6BAA6B;AAC/B;;AAEA;EACE,WAAW;EACX,aAAa;EACb,8BAA8B;EAC9B,eAAe;EACf,+BAA+B;EAC/B,iBAAiB;AACnB;;AAEA;EACE,0BAA0B;EAC1B,eAAe;AACjB;AACA;EACE,0BAA0B;EAC1B,eAAe;AACjB;;AAEA;EACE,WAAW;EACX,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,eAAe;EACf,kBAAkB;AACpB;;AAEA;EACE,eAAe;AACjB;;AAEA;;;GAGG","sourcesContent":[".betbuddy_icon {\r\n  transition: all 0.2s ease-out;\r\n  /* width: \"30px\";\r\n  height: \"30px\"; */\r\n  /* z-index: 1000; */\r\n  /* display: block; */\r\n  /* background-color: #f0f0f0; */\r\n}\r\n.betbuddy_icon:focus {\r\n  transform: translateY(2px);\r\n  cursor: pointer;\r\n}\r\n.betbuddy_icon:active {\r\n  transform: translateY(2px);\r\n  cursor: pointer;\r\n}\r\n\r\n.betbuddy_sportydropdown_container {\r\n  margin-top: 5px;\r\n  transition: all 0.2s ease-out;\r\n}\r\n\r\n.betbuddy_sportydropdown {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  cursor: pointer;\r\n  /* background-color: inherit; */\r\n  /* color: #fff; */\r\n}\r\n\r\n.betbuddy_sportydropdown_container:focus {\r\n  transform: translateY(2px);\r\n  cursor: pointer;\r\n}\r\n.betbuddy_sportydropdown_container:active {\r\n  transform: translateY(2px);\r\n  cursor: pointer;\r\n}\r\n\r\n.betbuddy_sportydropdown_container ul {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  margin-top: 5px;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.betbuddy_sportydropdown_container ul .betbuddy_sportydropdown_item {\r\n  cursor: pointer;\r\n}\r\n\r\n/* .betbuddy_icon:hover {\r\n  transform: translateY(4px);\r\n  cursor: pointer;\r\n} */\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27682,34 +27718,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-// import '../style/content.css'; // Import your CSS file here
 const SportybetContent = () => {
-    const filterImage = chrome.runtime.getURL('icons8-filter.gif'); // Get the absolute URL for the image
-    const sortImage = chrome.runtime.getURL('icons8-sort.gif'); // Get the absolute URL for the image
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: { display: 'flex', justifyContent: 'space-around', alignItems: 'center', paddingTop: '10px' } },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { role: "img", "aria-label": "Sort", className: 'betbuddy_icon', 
-                // onClick={() => alert('filete clicked!')}
-                style: {
-                    fontSize: '24px',
-                    cursor: 'pointer',
-                    backgroundImage: `url(${filterImage})`,
-                    backgroundSize: 'contain',
-                    backgroundRepeat: 'no-repeat',
-                    width: '20px',
-                    height: '20px',
-                } }),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { role: "img", "aria-label": "Sort", className: 'betbuddy_icon', 
-                // onClick={() => alert('Sort clicked!')}
-                style: {
-                    fontSize: '24px',
-                    cursor: 'pointer',
-                    backgroundImage: `url(${sortImage})`,
-                    backgroundSize: 'contain',
-                    backgroundRepeat: 'no-repeat',
-                    width: '20px',
-                    height: '20px',
-                } }))));
+    const [isFilterOpen, setIsFilterOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+    const [isSortOpen, setIsSortOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+    const toggleFilterDropdown = () => setIsFilterOpen(!isFilterOpen);
+    const toggleSortDropdown = () => setIsSortOpen(!isSortOpen);
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "p-5" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "betbuddy_sportydropdown_container" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: toggleFilterDropdown, className: "betbuddy_sportydropdown flex justify-between items-center px-4 py-2 bg-gray-200 rounded-md shadow-md hover:bg-gray-300" },
+                    "Filter",
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "ml-2 text-gray-600" }, isFilterOpen ? '▲' : '▼')),
+                isFilterOpen && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: `absolute left-0 mt-2 w-full border border-gray-300 rounded-md shadow-lg z-10 overflow-hidden transition-all duration-300 ${isFilterOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}` },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "py-2 justify-between items-center" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { className: "px-4 py-2 hover:bg-gray-100 cursor-pointer betbuddy_sportydropdown_item" }, "By Time"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { className: "px-4 py-2 hover:bg-gray-100 cursor-pointer betbuddy_sportydropdown_item" }, "By Odds"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { className: "px-4 py-2 hover:bg-gray-100 cursor-pointer betbuddy_sportydropdown_item" }, "By League"))))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "betbuddy_sportydropdown_container" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: toggleSortDropdown, className: "betbuddy_sportydropdown flex justify-between items-center px-4 py-2 rounded-md shadow-md hover:bg-gray-300" },
+                    "Sort",
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "ml-2 text-gray-200" }, isSortOpen ? '▲' : '▼')),
+                isSortOpen && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: `absolute left-0 mt-2 w-full border border-gray-300 rounded-md shadow-lg z-10 overflow-hidden transition-all duration-300 ${isSortOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}` },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "py-2" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { className: "px-4 py-2 hover:bg-gray-100 cursor-pointer betbuddy_sportydropdown_item" }, "Time"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { className: "px-4 py-2 hover:bg-gray-100 cursor-pointer betbuddy_sportydropdown_item" }, "Odds"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { className: "px-4 py-2 hover:bg-gray-100 cursor-pointer betbuddy_sportydropdown_item" }, "By Popularity"))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SportybetContent);
 

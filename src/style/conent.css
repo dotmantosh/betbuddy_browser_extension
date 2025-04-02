@@ -15,6 +15,42 @@
   cursor: pointer;
 }
 
+.betbuddy_sportydropdown_container {
+  margin-top: 5px;
+  transition: all 0.2s ease-out;
+}
+
+.betbuddy_sportydropdown {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  /* background-color: inherit; */
+  /* color: #fff; */
+}
+
+.betbuddy_sportydropdown_container:focus {
+  transform: translateY(2px);
+  cursor: pointer;
+}
+.betbuddy_sportydropdown_container:active {
+  transform: translateY(2px);
+  cursor: pointer;
+}
+
+.betbuddy_sportydropdown_container ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.betbuddy_sportydropdown_container ul .betbuddy_sportydropdown_item {
+  cursor: pointer;
+}
+
 /* .betbuddy_icon:hover {
   transform: translateY(4px);
   cursor: pointer;
