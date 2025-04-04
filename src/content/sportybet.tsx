@@ -13,7 +13,7 @@ const SportybetContent: React.FC = () => {
   const [sortOrder, setSortOrder] = useState<'Ascending' | 'Descending'>('Ascending');
   const [sportList, setSportList] = useState<ISportList[]>([]);
   const [popularEvents, setPopularEvents] = useState<any[]>([]);
-  const [leagueFilter, setLeagueFilter] = useState<string[]>([]); // Moved from renderFilterContent
+  const [leagueFilter, setLeagueFilter] = useState<ISportList[]>([]); // Moved from renderFilterContent
 
   const toggleFilterDropdown = () => setIsFilterOpen(!isFilterOpen);
   const toggleSortDropdown = () => setIsSortOpen(!isSortOpen);
@@ -21,11 +21,14 @@ const SportybetContent: React.FC = () => {
 
 
   const handleLeagueFilterChange = (sport: any) => {
+    const sportExist = leagueFilter.some(
+      (league) => league.id === sport.id
+    );
     setLeagueFilter((prev) => {
-      if (prev.includes(sport.id)) {
-        return prev.filter((id) => id !== sport.id);
+      if (sportExist) {
+        return prev.filter((league) => league.id !== sport.id);
       } else {
-        return [...prev, sport.id];
+        return [...prev, sport];
       }
     });
   };
@@ -191,7 +194,7 @@ const SportybetContent: React.FC = () => {
                           type="checkbox"
                           name="selectedLeague"
                           className="mr-2"
-                          checked={leagueFilter.includes(sport.id)} // Check if sport.id is in leagueFilter
+                          checked={leagueFilter.includes(sport)} // Check if sport.id is in leagueFilter
                           readOnly // Prevent direct editing of the checkbox
                         />
 
