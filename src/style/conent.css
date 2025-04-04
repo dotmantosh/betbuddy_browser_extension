@@ -6,6 +6,9 @@
   /* display: block; */
   /* background-color: #f0f0f0; */
 }
+#betbuddy-content-root {
+  font-family: avenirNext, arial, simsun;
+}
 .betbuddy_icon:focus {
   transform: translateY(2px);
   cursor: pointer;
@@ -44,10 +47,89 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 5px;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
+}
+
+.betbuddy_sportydropdown_container ul li.active {
+  background-color: buttonface;
+  color: buttontext;
+}
+.betbuddy_tab_content {
+  background-color: buttonface;
+  color: buttontext;
+  padding: 10px;
+}
+
+.betbuddy_sportydropdown_container ul li {
+  cursor: pointer;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  padding: 5px 10px;
 }
 
 .betbuddy_sportydropdown_container ul .betbuddy_sportydropdown_item {
+  cursor: pointer;
+}
+
+.form_group_flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.form-row-2 {
+  width: 46%;
+}
+.form_group_flex input {
+  display: block;
+  width: 100%;
+  /* padding: 3px; */
+}
+.betbuddy_form_errmsg {
+  color: red;
+  font-size: 12px;
+}
+.betbuddy_sportydropdown_container label {
+  display: block;
+  font-weight: semi-bold;
+}
+.betbuddy_tab_content select {
+  display: block;
+  width: 100%;
+}
+
+.betbuddy_sportitem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background-color: #f0f0f0;
+}
+
+.betbuddy-dropdown-container button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.apply_btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 5px 0;
+  background-color: #0d9737;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.apply_btn:hover {
+  background-color: #32ce62;
   cursor: pointer;
 }
 
