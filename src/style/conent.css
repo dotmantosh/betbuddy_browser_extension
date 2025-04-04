@@ -108,6 +108,11 @@
   background-color: #f0f0f0;
 }
 
+.betbuddy_sportitem:hover {
+  background-color:#c9c9c9;
+
+}
+
 .betbuddy-dropdown-container button {
   width: 100%;
   display: flex;

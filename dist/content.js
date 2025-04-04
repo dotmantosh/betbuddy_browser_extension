@@ -43016,104 +43016,6 @@ const Betway = () => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement
 
 /***/ }),
 
-/***/ "./src/content/components/sportybet/FilterComponent.tsx":
-/*!**************************************************************!*\
-  !*** ./src/content/components/sportybet/FilterComponent.tsx ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! yup */ "./node_modules/yup/index.esm.js");
-
-
-
-const renderFilterContent = (activeFilterTab, sportList) => {
-    const [leagueFilter, setLeagueFilter] = react__WEBPACK_IMPORTED_MODULE_0___default().useState([]);
-    // const handleLeagueFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //   const selectedValue = event.target.value;
-    //   console.log('Selected League:', selectedValue);
-    // };
-    // Yup validation schema for filter form
-    const filterValidationSchema = yup__WEBPACK_IMPORTED_MODULE_1__.object().shape({
-        startDate: yup__WEBPACK_IMPORTED_MODULE_1__.date().required('Required'),
-        endDate: yup__WEBPACK_IMPORTED_MODULE_1__.date()
-            .required('End Date is required')
-            .min(yup__WEBPACK_IMPORTED_MODULE_1__.ref('startDate'), 'End Date must be after Start Date'),
-        startOdds: yup__WEBPACK_IMPORTED_MODULE_1__.number().min(0, 'Start Odds must be positive'),
-        endOdds: yup__WEBPACK_IMPORTED_MODULE_1__.number()
-            .min(yup__WEBPACK_IMPORTED_MODULE_1__.ref('startOdds'), 'End Odds must be greater than Start Odds'),
-        selectedLeague: yup__WEBPACK_IMPORTED_MODULE_1__.string().required('Please select a league'),
-    });
-    const initialValues = {
-        startDate: '',
-        startTime: '',
-        endDate: '',
-        endTime: '',
-        startOdds: '',
-        endOdds: '',
-        selectedLeague: '',
-    };
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.Formik, { initialValues: initialValues, validationSchema: filterValidationSchema, onSubmit: (values) => {
-            console.log('Filter Values:', values);
-        } }, ({ handleSubmit }) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.Form, null,
-        activeFilterTab === 'By Time' && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex form_group_flex" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4 form-row-2" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "startDate", className: "block text-sm font-medium" }, "Start Date"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.Field, { type: "date", name: "startDate", className: "border rounded p-1 w-full" }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.ErrorMessage, { name: "startDate", component: "div", className: "text-red-500 text-sm betbuddy_form_errmsg" })),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4 form-row-2" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "endDate", className: "block text-sm font-medium" }, "End Date"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.Field, { type: "date", name: "endDate", className: "border rounded p-1 w-full" }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.ErrorMessage, { name: "endDate", component: "div", className: "text-red-500 text-sm" }))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex form_group_flex" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "startTime", className: "block text-sm font-medium" }, "Start Time"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.Field, { type: "time", name: "startTime", className: "border rounded p-1 w-full" }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.ErrorMessage, { name: "startTime", component: "div", className: "text-red-500 text-sm" })),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4 form-row-2" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "endTime", className: "block text-sm font-medium" }, "End Time"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.Field, { type: "time", name: "endTime", className: "border rounded p-1 w-full" }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.ErrorMessage, { name: "endTime", component: "div", className: "text-red-500 text-sm" }))))),
-        activeFilterTab === 'By Odds' && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex form_group_flex" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4 form-row-2" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "startOdds", className: "block text-sm font-medium" }, "Start Odds"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.Field, { type: "number", name: "startOdds", className: "border rounded p-1 w-full", range: { min: 1, max: 100 }, step: "0.01", defaultValue: "1.00" }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.ErrorMessage, { name: "startOdds", component: "div", className: "text-red-500 text-sm" })),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4 form-row-2" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "endOdds", className: "block text-sm font-medium" }, "End Odds"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.Field, { type: "number", name: "endOdds", className: "border rounded p-1 w-full", range: { min: 1, max: 100 }, step: "0.01", defaultValue: "100.00" }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.ErrorMessage, { name: "endOdds", component: "div", className: "text-red-500 text-sm" }))))),
-        activeFilterTab === 'By League' && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "selectedLeague", className: "block text-sm font-medium" }, "Select Leagues to remove"),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "betbuddy-dropdown-container" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "button", className: "border rounded p-1 w-full text-left flex justify-between items-center", onClick: () => {
-                        const dropdown = document.getElementById('league-dropdown');
-                        if (dropdown) {
-                            dropdown.style.display =
-                                dropdown.style.display === 'none' ? 'block' : 'none';
-                        }
-                    } },
-                    "Select League",
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "dropdown-arrow" }, "\u25BC")),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "league-dropdown", className: "border rounded mt-1 p-2 bg-white shadow-md", style: { display: 'none', maxHeight: '200px', overflowY: 'auto' } }, sportList.map((sport) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { key: sport.id, className: "flex items-center mb-2 betbuddy_sportitem" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: `league-${sport.id}`, className: "text-sm" }, sport.name),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_2__.Field, { type: "checkbox", name: "selectedLeague", value: sport.id, className: "mr-2" })))))))),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "submit", className: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 apply_btn" }, "Apply Filter")))));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderFilterContent);
-
-
-/***/ }),
-
 /***/ "./src/content/sportybet.tsx":
 /*!***********************************!*\
   !*** ./src/content/sportybet.tsx ***!
@@ -43127,9 +43029,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
 /* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! yup */ "./node_modules/yup/index.esm.js");
-/* harmony import */ var _components_sportybet_FilterComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/sportybet/FilterComponent */ "./src/content/components/sportybet/FilterComponent.tsx");
-/* harmony import */ var _services_sportybet_services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/sportybet.services */ "./src/services/sportybet.services.ts");
+/* harmony import */ var _services_sportybet_services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/sportybet.services */ "./src/services/sportybet.services.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -43151,28 +43053,84 @@ const SportybetContent = () => {
     const [sortOrder, setSortOrder] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('Ascending');
     const [sportList, setSportList] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
     const [popularEvents, setPopularEvents] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+    const [leagueFilter, setLeagueFilter] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]); // Moved from renderFilterContent
     const toggleFilterDropdown = () => setIsFilterOpen(!isFilterOpen);
     const toggleSortDropdown = () => setIsSortOpen(!isSortOpen);
-    // Yup validation schema for sort form
-    const sortValidationSchema = yup__WEBPACK_IMPORTED_MODULE_1__.object().shape({
-        sortOrder: yup__WEBPACK_IMPORTED_MODULE_1__.string().required('Sort Order is required'),
+    const handleLeagueFilterChange = (sport) => {
+        console.log('Selected League:', sport);
+    };
+    // Yup validation schema for filter form
+    const filterValidationSchema = yup__WEBPACK_IMPORTED_MODULE_1__.object().shape({
+        startDate: yup__WEBPACK_IMPORTED_MODULE_1__.date().required('Required'),
+        endDate: yup__WEBPACK_IMPORTED_MODULE_1__.date()
+            .required('End Date is required')
+            .min(yup__WEBPACK_IMPORTED_MODULE_1__.ref('startDate'), 'End Date must be after Start Date'),
+        startOdds: yup__WEBPACK_IMPORTED_MODULE_1__.number().min(0, 'Start Odds must be positive'),
+        endOdds: yup__WEBPACK_IMPORTED_MODULE_1__.number().min(yup__WEBPACK_IMPORTED_MODULE_1__.ref('startOdds'), 'End Odds must be greater than Start Odds'),
+        selectedLeague: yup__WEBPACK_IMPORTED_MODULE_1__.string().required('Please select a league'),
     });
+    const initialValues = {
+        startDate: '',
+        startTime: '',
+        endDate: '',
+        endTime: '',
+        startOdds: '',
+        endOdds: '',
+        selectedLeague: '',
+    };
+    const renderFilterContent = (activeFilterTab) => {
+        return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.Formik, { initialValues: initialValues, validationSchema: filterValidationSchema, onSubmit: (values) => {
+                console.log('Filter Values:', values);
+            } }, ({ handleSubmit }) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.Form, null,
+            activeFilterTab === 'By Time' && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex form_group_flex" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4 form-row-2" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "startDate", className: "block text-sm font-medium" }, "Start Date"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.Field, { type: "date", name: "startDate", className: "border rounded p-1 w-full" }),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.ErrorMessage, { name: "startDate", component: "div", className: "text-red-500 text-sm betbuddy_form_errmsg" })),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4 form-row-2" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "endDate", className: "block text-sm font-medium" }, "End Date"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.Field, { type: "date", name: "endDate", className: "border rounded p-1 w-full" }),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.ErrorMessage, { name: "endDate", component: "div", className: "text-red-500 text-sm" }))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex form_group_flex" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "startTime", className: "block text-sm font-medium" }, "Start Time"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.Field, { type: "time", name: "startTime", className: "border rounded p-1 w-full" }),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.ErrorMessage, { name: "startTime", component: "div", className: "text-red-500 text-sm" })),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4 form-row-2" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "endTime", className: "block text-sm font-medium" }, "End Time"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.Field, { type: "time", name: "endTime", className: "border rounded p-1 w-full" }),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.ErrorMessage, { name: "endTime", component: "div", className: "text-red-500 text-sm" }))))),
+            activeFilterTab === 'By Odds' && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex form_group_flex" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4 form-row-2" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "startOdds", className: "block text-sm font-medium" }, "Start Odds"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.Field, { type: "number", name: "startOdds", className: "border rounded p-1 w-full", step: "0.01", defaultValue: "1.00" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.ErrorMessage, { name: "startOdds", component: "div", className: "text-red-500 text-sm" })),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4 form-row-2" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "endOdds", className: "block text-sm font-medium" }, "End Odds"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.Field, { type: "number", name: "endOdds", className: "border rounded p-1 w-full", step: "0.01", defaultValue: "100.00" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.ErrorMessage, { name: "endOdds", component: "div", className: "text-red-500 text-sm" })))),
+            activeFilterTab === 'By League' && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "selectedLeague", className: "block text-sm font-medium" }, "Select Leagues to remove"),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "betbuddy-dropdown-container" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "button", className: "border rounded p-1 w-full text-left flex justify-between items-center", onClick: () => {
+                            const dropdown = document.getElementById('league-dropdown');
+                            if (dropdown) {
+                                dropdown.style.display =
+                                    dropdown.style.display === 'none' ? 'block' : 'none';
+                            }
+                        } },
+                        "Select League",
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "dropdown-arrow" }, "\u25BC")),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "league-dropdown", className: "border rounded mt-1 p-2 bg-white shadow-md", style: { display: 'none', maxHeight: '200px', overflowY: 'auto' } }, sportList.map((sport) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { key: sport.id, className: "flex items-center mb-2 betbuddy_sportitem", onClick: () => { handleLeagueFilterChange(sport); } },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: `league-${sport.id}`, className: "text-sm" }, sport.name),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.Field, { type: "checkbox", name: "selectedLeague", value: sport.id, className: "mr-2" })))))))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "submit", className: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 apply_btn" }, "Apply Filter")))));
+    };
     const renderSortContent = () => {
         switch (activeSortTab) {
             case 'Time':
-                return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex flex-col space-y-2" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex items-center space-x-2" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "sortOrder", className: "w-24" }, "Order:"),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", { id: "sortOrder", value: sortOrder, onChange: (e) => setSortOrder(e.target.value), className: "border rounded p-1 flex-1 appearance-none bg-white" },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: "Ascending" }, "Ascending"),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: "Descending" }, "Descending")))));
             case 'Odds':
-                return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex flex-col space-y-2" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex items-center space-x-2" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "sortOrder", className: "w-24" }, "Order:"),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", { id: "sortOrder", value: sortOrder, onChange: (e) => setSortOrder(e.target.value), className: "border rounded p-1 flex-1 appearance-none bg-white" },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: "Ascending" }, "Ascending"),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: "Descending" }, "Descending")))));
             case 'Popularity':
                 return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex flex-col space-y-2" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex items-center space-x-2" },
@@ -43184,31 +43142,18 @@ const SportybetContent = () => {
                 return null;
         }
     };
-    // const renderSortContent = () => {
-    //   switch (activeSortTab) {
-    //     case 'Time':
-    //       return <div>Content sorted by time</div>;
-    //     case 'Odds':
-    //       return <div>Content sorted by odds</div>;
-    //     case 'By Popularity':
-    //       return <div>Content sorted by popularity</div>;
-    //     default:
-    //       return null;
-    //   }
-    // };
     const getSportList = () => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const response = yield _services_sportybet_services__WEBPACK_IMPORTED_MODULE_3__["default"].getSportList('');
+            const response = yield _services_sportybet_services__WEBPACK_IMPORTED_MODULE_2__["default"].getSportList('');
             console.log('Sport List:', response.data);
-            // setSportList(response.data.data.sportList[0].categories)
-            // setPopularEvents(response.data.data.popularEvents[0].categories)
+            setSportList(response.data.data.sportList[0].categories || []);
+            setPopularEvents(response.data.data.popularEvents[0].categories || []);
         }
         catch (error) {
             console.error('Error fetching sports list:', error);
         }
     });
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        // Fetch the sports list when the component mounts
         getSportList();
     }, []);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "p-5" },
@@ -43222,7 +43167,7 @@ const SportybetContent = () => {
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: "by-time", className: `px-4 py-2 hover:bg-gray-100 cursor-pointer betbuddy_tab ${activeFilterTab === 'By Time' ? 'active' : ''}`, onClick: () => setActiveFilterTab('By Time') }, "By Time"),
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: "by-odds", className: `px-4 py-2 hover:bg-gray-100 cursor-pointer betbuddy_tab ${activeFilterTab === 'By Odds' ? 'active' : ''}`, onClick: () => setActiveFilterTab('By Odds') }, "By Odds"),
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: "by-league", className: `px-4 py-2 hover:bg-gray-100 cursor-pointer betbuddy_tab ${activeFilterTab === 'By League' ? 'active' : ''}`, onClick: () => setActiveFilterTab('By League') }, "By League")),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "betbuddy_tab_content mt-2" }, (0,_components_sportybet_FilterComponent__WEBPACK_IMPORTED_MODULE_2__["default"])(activeFilterTab, sportList))))),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "betbuddy_tab_content mt-2" }, renderFilterContent(activeFilterTab))))),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "betbuddy_sportydropdown_container" },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: toggleSortDropdown, className: "betbuddy_sportydropdown flex justify-between items-center px-4 py-2 bg-gray-200 rounded-md shadow-md hover:bg-gray-300 w-full" },
                     "Sort",
