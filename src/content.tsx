@@ -1,69 +1,120 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import SportybetContent from "./content/sportybet";
+import SportybetContent from './content/sportybet';
 import BetwayContent from './content/betway';
 import Bet9jaContent from './content/bet9ja';
-import './style/conent.css'; // Import your CSS file here
+import './style/conent.css';
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
+
+// Type definitions
+interface ApiMessage {
+  type: string;
+  url: string;
+  data: unknown;
+  method: string;
+}
+
+type SiteKey = 'sportybet' | 'betway' | 'bet9ja' | 'unsupported';
+
+declare global {
+  interface Window {
+    axios?: {
+      request: <T>(config: AxiosRequestConfig) => Promise<AxiosResponse<T>>;
+    };
+  }
+}
 
 // Map site IDs to components
-const siteComponents: { [key: string]: React.FC } = {
+const siteComponents: Record<SiteKey, React.FC<{ tournaments: any[] }>> = {
   sportybet: SportybetContent,
   betway: BetwayContent,
   bet9ja: Bet9jaContent,
+  unsupported: () => <div>No enhancements for this site</div>,
 };
 
-// Detect site from window.location
-const detectSite = (url: string): string => {
+const detectSite = (url: string): SiteKey => {
   if (url.includes('sportybet.com')) return 'sportybet';
   if (url.includes('betway.com')) return 'betway';
   if (url.includes('bet9ja.com')) return 'bet9ja';
   return 'unsupported';
 };
 
-// Main App component
-const ContentApp: React.FC<{ site: string }> = ({ site }) => {
-  console.log('Site from content ', site)
-  const Component = siteComponents[site] || (() => <div>No enhancements for this site</div>);
-  console.log(siteComponents[site])
-  return <Component />;
+const TARGET_API_ENDPOINTS = [
+  "/factsCenter/pcUpcomingEvents",
+  "/factsCenter/pcEvents",
+];
+
+const ContentApp: React.FC<{ site: SiteKey }> = ({ site }) => {
+  const [tournaments, setTournaments] = useState<any[]>([]);
+
+  const setupMessageRelay = () => {
+    window.addEventListener('message', (event) => {
+      // Security check
+      if (event.source !== window) return;
+
+      if (event.data.type === 'BETBUDDY_API_DATA') {
+        console.log("event gotten from interceptor :", event);
+
+        const newPayload = event.data.payload.data;
+
+        if (event.data.payload.url === "/factsCenter/pcEvents") {
+          console.log('new Payload for pcEvents:', newPayload);
+
+          // Update state with new data
+          setTournaments((prev) => {
+            const isNewData = !prev.some((existing: any) =>
+              JSON.stringify(existing) === JSON.stringify(newPayload)
+            );
+
+            if (isNewData) {
+              return [...prev, ...newPayload];
+            }
+            return prev;
+          });
+        }
+
+        if (event.data.payload.url === "/factsCenter/pcUpcomingEvents") {
+          console.log('new Payload for pcUpcomingEvents:', newPayload);
+
+          // Update state with new data
+          setTournaments((prev) => {
+            const isNewData = !prev.some((existing: any) =>
+              JSON.stringify(existing) === JSON.stringify(newPayload)
+            );
+
+            if (isNewData) {
+              return [...prev, ...newPayload];
+            }
+            return prev;
+          });
+        }
+      }
+    });
+  };
+
+  // Initialize the message relay BEFORE injecting scripts
+  setupMessageRelay();
+
+  const injectScript = (file: string) => {
+    const script = document.createElement('script');
+    script.src = chrome.runtime.getURL(file);
+    script.onload = () => script.remove();
+    (document.head || document.documentElement).appendChild(script);
+  };
+
+  // Inject the interceptor script
+  injectScript('interceptor.js');
+
+  const Component = siteComponents[site];
+  return <Component tournaments={tournaments} />;
 };
 
-// Mount the React app
-const mountApp = () => {
+// Mounting logic
+const mountApp = (): void => {
   const site = detectSite(window.location.href);
 
-  // // Create or find the container
-  // let container = document.getElementById('betbuddy-content-root');
-
-
-  // container = document.createElement('div');
-  // container.id = 'betbuddy-content-root'; // Fixed from your previous code
-
-  let container;
-
-  if (site === 'sportybet') {
-    const betslipDiv = document.getElementById('j_betslip');
-    if (betslipDiv) {
-      betslipDiv.style.position = 'relative';
-      container = document.createElement('div');
-      container.id = 'betbuddy-controls';
-      // Set dark gray background and white text
-      // container.style.backgroundColor = '#333';
-      container.style.color = 'white';
-      // container.style.padding = '10px';
-      // container.style.position = 'absolute';
-      // container.style.top = '0';
-      // container.style.left = '0';
-      container.style.width = '100%';
-      // container.style.height = '100px';
-
-      container.style.zIndex = '9999';
-      betslipDiv.insertBefore(container, betslipDiv.firstChild);
-    } else {
-      console.error('j_betslip not found');
-      return;
-    }
-  } else {
+  let container = document.getElementById('betbuddy-content-root');
+  if (!container) {
     container = document.createElement('div');
     container.id = 'betbuddy-content-root';
     document.body.appendChild(container);
@@ -73,5 +124,4 @@ const mountApp = () => {
   root.render(<ContentApp site={site} />);
 };
 
-// Run immediately since it’s statically loaded via manifest.json
 mountApp();

@@ -51,6 +51,10 @@ module.exports = {
           from: path.resolve("src/static"),
           to: path.resolve("dist"),
         },
+        {
+          from: path.resolve("src/inject/interceptor.js"), // Add this line
+          to: path.resolve("dist/interceptor.js"), // Add this line
+        },
       ],
     }),
     // new HtmlPlugin({

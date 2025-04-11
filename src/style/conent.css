@@ -1,3 +1,22 @@
+.mt-10 {
+  margin-top: 10px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.mt-30 {
+  margin-top: 30px;
+}
+.mt-40 {
+  margin-top: 40px;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.mt-60 {
+  margin-top: 60px;
+}
+
 .betbuddy_icon {
   transition: all 0.2s ease-out;
   /* width: "30px";
@@ -109,8 +128,8 @@
 }
 
 .betbuddy_sportitem:hover {
-  background-color:#c9c9c9;
-
+  background-color: #c9c9c9;
+  cursor: pointer;
 }
 
 .betbuddy-dropdown-container button {
@@ -118,6 +137,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.clear_btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 5px 0;
+  background-color: #f0f;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  font-weight: bold;
+  margin-top: 10px;
 }
 .apply_btn {
   display: block;

@@ -4,7 +4,14 @@
   "version": "1.0.0",
   "author": "Dotmantosh @ Bet Buddy",
   "description": "A Buddy that accompanies you through out your betting journey.",
-  "permissions": ["tabs", "storage", "activeTab", "scripting", "identity"],
+  "permissions": [
+    "tabs",
+    "storage",
+    "activeTab",
+    "scripting",
+    "identity",
+    "webRequest"
+  ],
   "host_permissions": ["*://*/*"],
   "icons": {
     "16": "icon.png",
@@ -30,7 +37,7 @@
   ],
   "content_scripts": [
     {
-      "matches": ["*://*.sportybet.com/*"],
+      "matches": ["<all_urls>"],
       "js": ["content.js"]
     }
   ]

@@ -8,6 +8,6 @@
     "moduleResolution": "node",
     "types": ["chrome", "node"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/inject/interceptor.js"],
   "exclude": ["node_modules"],
 }

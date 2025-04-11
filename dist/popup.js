@@ -107,12 +107,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-const SportyBetPopup = ({ url }) => {
+const SportyBetPopup = ({ url, tournaments }) => {
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", { className: 'text-green' }, "Sportybet Tools"),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null,
             "Current URL: ",
-            url || 'Not available')));
+            url || 'Not available'),
+        (tournaments === null || tournaments === void 0 ? void 0 : tournaments.length) ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null,
+                "First Tournament ID: ",
+                tournaments[0].id),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null,
+                "Total Tournaments: ",
+                tournaments.length))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "No tournaments data available"))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SportyBetPopup);
 
@@ -205,6 +212,7 @@ function Popup({ url }) {
     const site = (0,_config_siteDetector__WEBPACK_IMPORTED_MODULE_5__.detectSite)(url) || 'unsupported';
     const SiteComponent = siteComponents[site] || _components_UnsupportedPopup__WEBPACK_IMPORTED_MODULE_4__["default"];
     const [injectedScript, setInjectedScript] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('Loading...');
+    const [apiData, setApiData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     // useEffect(() => {
     //   console.log('[Popup] Sending message for URL:', url);
     //   chrome.runtime.sendMessage({ action: 'getInjectedScript', url }, (response) => {
@@ -217,9 +225,32 @@ function Popup({ url }) {
     //     }
     //   });
     // }, [url]);
+    // Add this useEffect for message listening
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        // Load existing data on mount
+        chrome.storage.local.get('sportyBetTournaments', (result) => {
+            console.log('tournaments gotten from localstorage :', result.sportyBetTournaments);
+            if (result.sportyBetTournaments) {
+                setApiData(result.sportyBetTournaments);
+            }
+        });
+        // Listen for real-time updates
+        const messageHandler = (message) => {
+            if (message.type === 'API_RESPONSE') {
+                console.log('tournaments gotten from chromeruntime :', message);
+                setApiData((prev) => {
+                    const existingIds = new Set((prev === null || prev === void 0 ? void 0 : prev.map((item) => item.id)) || []);
+                    const newItems = message.data.filter((item) => !existingIds.has(item.id));
+                    return [...(prev || []), ...newItems];
+                });
+            }
+        };
+        chrome.runtime.onMessage.addListener(messageHandler);
+        return () => chrome.runtime.onMessage.removeListener(messageHandler);
+    }, []);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "buddy.png", alt: "" }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(SiteComponent, { url: url }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(SiteComponent, { url: url, tournaments: apiData }),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "text-green-500" },
             "Injected Script: ",
             injectedScript)));

@@ -4763,7 +4763,26 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.betbuddy_icon {
+___CSS_LOADER_EXPORT___.push([module.id, `.mt-10 {
+  margin-top: 10px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.mt-30 {
+  margin-top: 30px;
+}
+.mt-40 {
+  margin-top: 40px;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.mt-60 {
+  margin-top: 60px;
+}
+
+.betbuddy_icon {
   transition: all 0.2s ease-out;
   /* width: "30px";
   height: "30px"; */
@@ -4873,11 +4892,28 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.betbuddy_icon {
   background-color: #f0f0f0;
 }
 
+.betbuddy_sportitem:hover {
+  background-color: #c9c9c9;
+  cursor: pointer;
+}
+
 .betbuddy-dropdown-container button {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.clear_btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 5px 0;
+  background-color: #f0f;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  font-weight: bold;
+  margin-top: 10px;
 }
 .apply_btn {
   display: block;
@@ -4902,7 +4938,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.betbuddy_icon {
   transform: translateY(4px);
   cursor: pointer;
 } */
-`, "",{"version":3,"sources":["webpack://./src/style/conent.css"],"names":[],"mappings":"AAAA;EACE,6BAA6B;EAC7B;mBACiB;EACjB,mBAAmB;EACnB,oBAAoB;EACpB,+BAA+B;AACjC;AACA;EACE,sCAAsC;AACxC;AACA;EACE,0BAA0B;EAC1B,eAAe;AACjB;AACA;EACE,0BAA0B;EAC1B,eAAe;AACjB;;AAEA;EACE,eAAe;EACf,6BAA6B;AAC/B;;AAEA;EACE,WAAW;EACX,aAAa;EACb,8BAA8B;EAC9B,eAAe;EACf,+BAA+B;EAC/B,iBAAiB;AACnB;;AAEA;EACE,0BAA0B;EAC1B,eAAe;AACjB;AACA;EACE,0BAA0B;EAC1B,eAAe;AACjB;;AAEA;EACE,WAAW;EACX,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,eAAe;EACf,wBAAwB;AAC1B;;AAEA;EACE,4BAA4B;EAC5B,iBAAiB;AACnB;AACA;EACE,4BAA4B;EAC5B,iBAAiB;EACjB,aAAa;AACf;;AAEA;EACE,eAAe;EACf,2BAA2B;EAC3B,4BAA4B;EAC5B,iBAAiB;AACnB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,eAAe;EACf,kBAAkB;AACpB;AACA;EACE,UAAU;AACZ;AACA;EACE,cAAc;EACd,WAAW;EACX,kBAAkB;AACpB;AACA;EACE,UAAU;EACV,eAAe;AACjB;AACA;EACE,cAAc;EACd,sBAAsB;AACxB;AACA;EACE,cAAc;EACd,WAAW;AACb;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,eAAe;EACf,iBAAiB;EACjB,kBAAkB;EAClB,yBAAyB;AAC3B;;AAEA;EACE,WAAW;EACX,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,WAAW;EACX,kBAAkB;EAClB,cAAc;EACd,yBAAyB;EACzB,YAAY;EACZ,aAAa;EACb,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;EACzB,eAAe;AACjB;;AAEA;;;GAGG","sourcesContent":[".betbuddy_icon {\r\n  transition: all 0.2s ease-out;\r\n  /* width: \"30px\";\r\n  height: \"30px\"; */\r\n  /* z-index: 1000; */\r\n  /* display: block; */\r\n  /* background-color: #f0f0f0; */\r\n}\r\n#betbuddy-content-root {\r\n  font-family: avenirNext, arial, simsun;\r\n}\r\n.betbuddy_icon:focus {\r\n  transform: translateY(2px);\r\n  cursor: pointer;\r\n}\r\n.betbuddy_icon:active {\r\n  transform: translateY(2px);\r\n  cursor: pointer;\r\n}\r\n\r\n.betbuddy_sportydropdown_container {\r\n  margin-top: 5px;\r\n  transition: all 0.2s ease-out;\r\n}\r\n\r\n.betbuddy_sportydropdown {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  cursor: pointer;\r\n  /* background-color: inherit; */\r\n  /* color: #fff; */\r\n}\r\n\r\n.betbuddy_sportydropdown_container:focus {\r\n  transform: translateY(2px);\r\n  cursor: pointer;\r\n}\r\n.betbuddy_sportydropdown_container:active {\r\n  transform: translateY(2px);\r\n  cursor: pointer;\r\n}\r\n\r\n.betbuddy_sportydropdown_container ul {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  margin-top: 5px;\r\n  /* margin-bottom: 5px; */\r\n}\r\n\r\n.betbuddy_sportydropdown_container ul li.active {\r\n  background-color: buttonface;\r\n  color: buttontext;\r\n}\r\n.betbuddy_tab_content {\r\n  background-color: buttonface;\r\n  color: buttontext;\r\n  padding: 10px;\r\n}\r\n\r\n.betbuddy_sportydropdown_container ul li {\r\n  cursor: pointer;\r\n  border-top-left-radius: 3px;\r\n  border-top-right-radius: 3px;\r\n  padding: 5px 10px;\r\n}\r\n\r\n.betbuddy_sportydropdown_container ul .betbuddy_sportydropdown_item {\r\n  cursor: pointer;\r\n}\r\n\r\n.form_group_flex {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-top: 5px;\r\n  margin-bottom: 5px;\r\n}\r\n.form-row-2 {\r\n  width: 46%;\r\n}\r\n.form_group_flex input {\r\n  display: block;\r\n  width: 100%;\r\n  /* padding: 3px; */\r\n}\r\n.betbuddy_form_errmsg {\r\n  color: red;\r\n  font-size: 12px;\r\n}\r\n.betbuddy_sportydropdown_container label {\r\n  display: block;\r\n  font-weight: semi-bold;\r\n}\r\n.betbuddy_tab_content select {\r\n  display: block;\r\n  width: 100%;\r\n}\r\n\r\n.betbuddy_sportitem {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  margin-top: 5px;\r\n  padding: 5px 10px;\r\n  border-radius: 3px;\r\n  background-color: #f0f0f0;\r\n}\r\n\r\n.betbuddy-dropdown-container button {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n}\r\n.apply_btn {\r\n  display: block;\r\n  width: 100%;\r\n  text-align: center;\r\n  padding: 5px 0;\r\n  background-color: #0d9737;\r\n  border: none;\r\n  outline: none;\r\n  border-radius: 3px;\r\n  color: #fff;\r\n  font-weight: bold;\r\n  margin-top: 10px;\r\n}\r\n\r\n.apply_btn:hover {\r\n  background-color: #32ce62;\r\n  cursor: pointer;\r\n}\r\n\r\n/* .betbuddy_icon:hover {\r\n  transform: translateY(4px);\r\n  cursor: pointer;\r\n} */\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/style/conent.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;;AAEA;EACE,6BAA6B;EAC7B;mBACiB;EACjB,mBAAmB;EACnB,oBAAoB;EACpB,+BAA+B;AACjC;AACA;EACE,sCAAsC;AACxC;AACA;EACE,0BAA0B;EAC1B,eAAe;AACjB;AACA;EACE,0BAA0B;EAC1B,eAAe;AACjB;;AAEA;EACE,eAAe;EACf,6BAA6B;AAC/B;;AAEA;EACE,WAAW;EACX,aAAa;EACb,8BAA8B;EAC9B,eAAe;EACf,+BAA+B;EAC/B,iBAAiB;AACnB;;AAEA;EACE,0BAA0B;EAC1B,eAAe;AACjB;AACA;EACE,0BAA0B;EAC1B,eAAe;AACjB;;AAEA;EACE,WAAW;EACX,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,eAAe;EACf,wBAAwB;AAC1B;;AAEA;EACE,4BAA4B;EAC5B,iBAAiB;AACnB;AACA;EACE,4BAA4B;EAC5B,iBAAiB;EACjB,aAAa;AACf;;AAEA;EACE,eAAe;EACf,2BAA2B;EAC3B,4BAA4B;EAC5B,iBAAiB;AACnB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,eAAe;EACf,kBAAkB;AACpB;AACA;EACE,UAAU;AACZ;AACA;EACE,cAAc;EACd,WAAW;EACX,kBAAkB;AACpB;AACA;EACE,UAAU;EACV,eAAe;AACjB;AACA;EACE,cAAc;EACd,sBAAsB;AACxB;AACA;EACE,cAAc;EACd,WAAW;AACb;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,eAAe;EACf,iBAAiB;EACjB,kBAAkB;EAClB,yBAAyB;AAC3B;;AAEA;EACE,yBAAyB;EACzB,eAAe;AACjB;;AAEA;EACE,WAAW;EACX,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;AACrB;AACA;EACE,cAAc;EACd,WAAW;EACX,kBAAkB;EAClB,cAAc;EACd,sBAAsB;EACtB,YAAY;EACZ,aAAa;EACb,kBAAkB;EAClB,iBAAiB;EACjB,gBAAgB;AAClB;AACA;EACE,cAAc;EACd,WAAW;EACX,kBAAkB;EAClB,cAAc;EACd,yBAAyB;EACzB,YAAY;EACZ,aAAa;EACb,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;EACzB,eAAe;AACjB;;AAEA;;;GAGG","sourcesContent":[".mt-10 {\r\n  margin-top: 10px;\r\n}\r\n.mt-20 {\r\n  margin-top: 20px;\r\n}\r\n.mt-30 {\r\n  margin-top: 30px;\r\n}\r\n.mt-40 {\r\n  margin-top: 40px;\r\n}\r\n.mt-50 {\r\n  margin-top: 50px;\r\n}\r\n.mt-60 {\r\n  margin-top: 60px;\r\n}\r\n\r\n.betbuddy_icon {\r\n  transition: all 0.2s ease-out;\r\n  /* width: \"30px\";\r\n  height: \"30px\"; */\r\n  /* z-index: 1000; */\r\n  /* display: block; */\r\n  /* background-color: #f0f0f0; */\r\n}\r\n#betbuddy-content-root {\r\n  font-family: avenirNext, arial, simsun;\r\n}\r\n.betbuddy_icon:focus {\r\n  transform: translateY(2px);\r\n  cursor: pointer;\r\n}\r\n.betbuddy_icon:active {\r\n  transform: translateY(2px);\r\n  cursor: pointer;\r\n}\r\n\r\n.betbuddy_sportydropdown_container {\r\n  margin-top: 5px;\r\n  transition: all 0.2s ease-out;\r\n}\r\n\r\n.betbuddy_sportydropdown {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  cursor: pointer;\r\n  /* background-color: inherit; */\r\n  /* color: #fff; */\r\n}\r\n\r\n.betbuddy_sportydropdown_container:focus {\r\n  transform: translateY(2px);\r\n  cursor: pointer;\r\n}\r\n.betbuddy_sportydropdown_container:active {\r\n  transform: translateY(2px);\r\n  cursor: pointer;\r\n}\r\n\r\n.betbuddy_sportydropdown_container ul {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  margin-top: 5px;\r\n  /* margin-bottom: 5px; */\r\n}\r\n\r\n.betbuddy_sportydropdown_container ul li.active {\r\n  background-color: buttonface;\r\n  color: buttontext;\r\n}\r\n.betbuddy_tab_content {\r\n  background-color: buttonface;\r\n  color: buttontext;\r\n  padding: 10px;\r\n}\r\n\r\n.betbuddy_sportydropdown_container ul li {\r\n  cursor: pointer;\r\n  border-top-left-radius: 3px;\r\n  border-top-right-radius: 3px;\r\n  padding: 5px 10px;\r\n}\r\n\r\n.betbuddy_sportydropdown_container ul .betbuddy_sportydropdown_item {\r\n  cursor: pointer;\r\n}\r\n\r\n.form_group_flex {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-top: 5px;\r\n  margin-bottom: 5px;\r\n}\r\n.form-row-2 {\r\n  width: 46%;\r\n}\r\n.form_group_flex input {\r\n  display: block;\r\n  width: 100%;\r\n  /* padding: 3px; */\r\n}\r\n.betbuddy_form_errmsg {\r\n  color: red;\r\n  font-size: 12px;\r\n}\r\n.betbuddy_sportydropdown_container label {\r\n  display: block;\r\n  font-weight: semi-bold;\r\n}\r\n.betbuddy_tab_content select {\r\n  display: block;\r\n  width: 100%;\r\n}\r\n\r\n.betbuddy_sportitem {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  margin-top: 5px;\r\n  padding: 5px 10px;\r\n  border-radius: 3px;\r\n  background-color: #f0f0f0;\r\n}\r\n\r\n.betbuddy_sportitem:hover {\r\n  background-color: #c9c9c9;\r\n  cursor: pointer;\r\n}\r\n\r\n.betbuddy-dropdown-container button {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n}\r\n.clear_btn {\r\n  display: block;\r\n  width: 100%;\r\n  text-align: center;\r\n  padding: 5px 0;\r\n  background-color: #f0f;\r\n  border: none;\r\n  outline: none;\r\n  border-radius: 3px;\r\n  font-weight: bold;\r\n  margin-top: 10px;\r\n}\r\n.apply_btn {\r\n  display: block;\r\n  width: 100%;\r\n  text-align: center;\r\n  padding: 5px 0;\r\n  background-color: #0d9737;\r\n  border: none;\r\n  outline: none;\r\n  border-radius: 3px;\r\n  color: #fff;\r\n  font-weight: bold;\r\n  margin-top: 10px;\r\n}\r\n\r\n.apply_btn:hover {\r\n  background-color: #32ce62;\r\n  cursor: pointer;\r\n}\r\n\r\n/* .betbuddy_icon:hover {\r\n  transform: translateY(4px);\r\n  cursor: pointer;\r\n} */\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -43057,7 +43093,15 @@ const SportybetContent = () => {
     const toggleFilterDropdown = () => setIsFilterOpen(!isFilterOpen);
     const toggleSortDropdown = () => setIsSortOpen(!isSortOpen);
     const handleLeagueFilterChange = (sport) => {
-        console.log('Selected League:', sport);
+        const sportExist = leagueFilter.some((league) => league.id === sport.id);
+        setLeagueFilter((prev) => {
+            if (sportExist) {
+                return prev.filter((league) => league.id !== sport.id);
+            }
+            else {
+                return [...prev, sport];
+            }
+        });
     };
     // Yup validation schema for filter form
     const filterValidationSchema = yup__WEBPACK_IMPORTED_MODULE_1__.object().shape({
@@ -43113,7 +43157,7 @@ const SportybetContent = () => {
             activeFilterTab === 'By League' && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4" },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "selectedLeague", className: "block text-sm font-medium" }, "Select Leagues to remove"),
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "betbuddy-dropdown-container" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "button", className: "border rounded p-1 w-full text-left flex justify-between items-center", onClick: () => {
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "button", className: "betbuddy_sportydropdown border rounded p-1 w-full text-left flex justify-between items-center", onClick: () => {
                             const dropdown = document.getElementById('league-dropdown');
                             if (dropdown) {
                                 dropdown.style.display =
@@ -43124,8 +43168,10 @@ const SportybetContent = () => {
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "dropdown-arrow" }, "\u25BC")),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "league-dropdown", className: "border rounded mt-1 p-2 bg-white shadow-md", style: { display: 'none', maxHeight: '200px', overflowY: 'auto' } }, sportList.map((sport) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { key: sport.id, className: "flex items-center mb-2 betbuddy_sportitem", onClick: () => { handleLeagueFilterChange(sport); } },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: `league-${sport.id}`, className: "text-sm" }, sport.name),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.Field, { type: "checkbox", name: "selectedLeague", value: sport.id, className: "mr-2" })))))))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "submit", className: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 apply_btn" }, "Apply Filter")))));
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(formik__WEBPACK_IMPORTED_MODULE_3__.Field, { type: "checkbox", name: "selectedLeague", className: "mr-2", checked: leagueFilter.includes(sport), readOnly // Prevent direct editing of the checkbox
+                            : true })))))))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "submit", className: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 apply_btn" }, "Apply Filter"),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "button", className: "clear_btn mt-10 text-white px-4 py-2 rounded-md" }, "Clear Filter")))));
     };
     const renderSortContent = () => {
         switch (activeSortTab) {
@@ -43153,9 +43199,9 @@ const SportybetContent = () => {
             console.error('Error fetching sports list:', error);
         }
     });
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        getSportList();
-    }, []);
+    // useEffect(() => {
+    //   getSportList();
+    // }, []);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "p-5" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "betbuddy_sportydropdown_container" },
@@ -43389,14 +43435,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // Import your CSS file here
+
 // Map site IDs to components
 const siteComponents = {
     sportybet: _content_sportybet__WEBPACK_IMPORTED_MODULE_2__["default"],
     betway: _content_betway__WEBPACK_IMPORTED_MODULE_3__["default"],
     bet9ja: _content_bet9ja__WEBPACK_IMPORTED_MODULE_4__["default"],
+    unsupported: () => react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "No enhancements for this site"),
 };
-// Detect site from window.location
 const detectSite = (url) => {
     if (url.includes('sportybet.com'))
         return 'sportybet';
@@ -43406,45 +43452,63 @@ const detectSite = (url) => {
         return 'bet9ja';
     return 'unsupported';
 };
-// Main App component
+const TARGET_API_ENDPOINTS = [
+    "/factsCenter/pcUpcomingEvents",
+    "/factsCenter/pcEvents",
+];
 const ContentApp = ({ site }) => {
-    console.log('Site from content ', site);
-    const Component = siteComponents[site] || (() => react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "No enhancements for this site"));
-    console.log(siteComponents[site]);
-    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Component, null);
+    const [tournaments, setTournaments] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+    const setupMessageRelay = () => {
+        window.addEventListener('message', (event) => {
+            // Security check
+            if (event.source !== window)
+                return;
+            if (event.data.type === 'BETBUDDY_API_DATA') {
+                console.log("event gotten from interceptor :", event);
+                const newPayload = event.data.payload.data;
+                if (event.data.payload.url === "/factsCenter/pcEvents") {
+                    console.log('new Payload for pcEvents:', newPayload);
+                    // Update state with new data
+                    setTournaments((prev) => {
+                        const isNewData = !prev.some((existing) => JSON.stringify(existing) === JSON.stringify(newPayload));
+                        if (isNewData) {
+                            return [...prev, ...newPayload];
+                        }
+                        return prev;
+                    });
+                }
+                if (event.data.payload.url === "/factsCenter/pcUpcomingEvents") {
+                    console.log('new Payload for pcUpcomingEvents:', newPayload);
+                    // Update state with new data
+                    setTournaments((prev) => {
+                        const isNewData = !prev.some((existing) => JSON.stringify(existing) === JSON.stringify(newPayload));
+                        if (isNewData) {
+                            return [...prev, ...newPayload];
+                        }
+                        return prev;
+                    });
+                }
+            }
+        });
+    };
+    // Initialize the message relay BEFORE injecting scripts
+    setupMessageRelay();
+    const injectScript = (file) => {
+        const script = document.createElement('script');
+        script.src = chrome.runtime.getURL(file);
+        script.onload = () => script.remove();
+        (document.head || document.documentElement).appendChild(script);
+    };
+    // Inject the interceptor script
+    injectScript('interceptor.js');
+    const Component = siteComponents[site];
+    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Component, { tournaments: tournaments });
 };
-// Mount the React app
+// Mounting logic
 const mountApp = () => {
     const site = detectSite(window.location.href);
-    // // Create or find the container
-    // let container = document.getElementById('betbuddy-content-root');
-    // container = document.createElement('div');
-    // container.id = 'betbuddy-content-root'; // Fixed from your previous code
-    let container;
-    if (site === 'sportybet') {
-        const betslipDiv = document.getElementById('j_betslip');
-        if (betslipDiv) {
-            betslipDiv.style.position = 'relative';
-            container = document.createElement('div');
-            container.id = 'betbuddy-controls';
-            // Set dark gray background and white text
-            // container.style.backgroundColor = '#333';
-            container.style.color = 'white';
-            // container.style.padding = '10px';
-            // container.style.position = 'absolute';
-            // container.style.top = '0';
-            // container.style.left = '0';
-            container.style.width = '100%';
-            // container.style.height = '100px';
-            container.style.zIndex = '9999';
-            betslipDiv.insertBefore(container, betslipDiv.firstChild);
-        }
-        else {
-            console.error('j_betslip not found');
-            return;
-        }
-    }
-    else {
+    let container = document.getElementById('betbuddy-content-root');
+    if (!container) {
         container = document.createElement('div');
         container.id = 'betbuddy-content-root';
         document.body.appendChild(container);
@@ -43452,7 +43516,6 @@ const mountApp = () => {
     const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container);
     root.render(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ContentApp, { site: site }));
 };
-// Run immediately since it’s statically loaded via manifest.json
 mountApp();
 
 })();

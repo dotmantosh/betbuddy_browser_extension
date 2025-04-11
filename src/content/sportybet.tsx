@@ -163,7 +163,7 @@ const SportybetContent: React.FC = () => {
                 <div className="betbuddy-dropdown-container">
                   <button
                     type="button"
-                    className="border rounded p-1 w-full text-left flex justify-between items-center"
+                    className="betbuddy_sportydropdown border rounded p-1 w-full text-left flex justify-between items-center"
                     onClick={() => {
                       const dropdown = document.getElementById('league-dropdown');
                       if (dropdown) {
@@ -210,6 +210,12 @@ const SportybetContent: React.FC = () => {
             >
               Apply Filter
             </button>
+            <button
+              type="button"
+              className="clear_btn mt-10 text-white px-4 py-2 rounded-md"
+            >
+              Clear Filter
+            </button>
           </Form>
         )}
       </Formik>
@@ -255,9 +261,9 @@ const SportybetContent: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    getSportList();
-  }, []);
+  // useEffect(() => {
+  //   getSportList();
+  // }, []);
 
   return (
     <div className="p-5">
