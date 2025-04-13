@@ -23,7 +23,9 @@
   if (window.axios) {
     const originalRequest = window.axios.request;
     window.axios.request = async function (config) {
-      if (!isTargetedUrl(config.url)) return;
+      // if (!isTargetedUrl(config.url)) {
+      //   return originalRequest(config)
+      // };
       console.log("[Axios Intercepted Request]", config);
       const response = await originalRequest.call(this, config);
       console.log("[Axios Intercepted Response]", response);
@@ -36,7 +38,9 @@
   window.fetch = async (...args) => {
     const url = args[0];
 
-    if (!isTargetedUrl(url)) return;
+    if (!isTargetedUrl(url)) {
+      return originalFetch(...args); // Ensure the original fetch is called for non-targeted URLs
+    }
     const response = await originalFetch(...args);
     const clonedResponse = response.clone();
     console.log("clonedResponse: ", clonedResponse);
@@ -111,7 +115,10 @@
   // Override XMLHttpRequest
   const originalXHROpen = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function (method, url) {
-    if (!isTargetedUrl(config.url)) return;
+    if (!isTargetedUrl(url)) {
+      return originalFetch(...args); // Ensure the original fetch is called for non-targeted URLs
+    }
+
     console.log("[XHR Intercepted]", method, url);
     const originalSend = this.send;
     this.send = function (body) {

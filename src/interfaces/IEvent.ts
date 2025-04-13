@@ -1,3 +1,11 @@
+// Interface for the Root Object
+export interface ITournament {
+  id: string;
+  name: string;
+  events: IEvent[];
+  categoryName: string;
+  categoryId: string;
+}
 // Interface for Event
 export interface IEvent {
   eventId: string;

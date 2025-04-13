@@ -5,6 +5,8 @@ import BetwayContent from './content/betway';
 import Bet9jaContent from './content/bet9ja';
 import './style/conent.css';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { IEvent, ITournament } from './interfaces/IEvent';
+
 
 // Type definitions
 interface ApiMessage {
@@ -25,11 +27,11 @@ declare global {
 }
 
 // Map site IDs to components
-const siteComponents: Record<SiteKey, React.FC<{ tournaments: any[] }>> = {
+const siteComponents: Record<SiteKey, React.FC<{ tournaments: ITournament[]; events: IEvent[] }>> = {
   sportybet: SportybetContent,
   betway: BetwayContent,
   bet9ja: Bet9jaContent,
-  unsupported: () => <div>No enhancements for this site</div>,
+  unsupported: () => <></>,
 };
 
 const detectSite = (url: string): SiteKey => {
@@ -45,7 +47,8 @@ const TARGET_API_ENDPOINTS = [
 ];
 
 const ContentApp: React.FC<{ site: SiteKey }> = ({ site }) => {
-  const [tournaments, setTournaments] = useState<any[]>([]);
+  const [tournaments, setTournaments] = useState<ITournament[]>([]);
+  const [events, setEvents] = useState<IEvent[]>([]);
 
   const setupMessageRelay = () => {
     window.addEventListener('message', (event) => {
@@ -53,47 +56,29 @@ const ContentApp: React.FC<{ site: SiteKey }> = ({ site }) => {
       if (event.source !== window) return;
 
       if (event.data.type === 'BETBUDDY_API_DATA') {
-        console.log("event gotten from interceptor :", event);
+        console.log("Event received from interceptor:", event);
 
-        const newPayload = event.data.payload.data;
+        const newPayload: ITournament[] = event.data.payload.data;
+        console.log('New Payload from Window:', newPayload);
 
-        if (event.data.payload.url === "/factsCenter/pcEvents") {
-          console.log('new Payload for pcEvents:', newPayload);
+        // Flatten the events from the new payload
+        const newEvents: IEvent[] = newPayload.flatMap((tournament) => tournament.events as IEvent[]);
 
-          // Update state with new data
-          setTournaments((prev) => {
-            const isNewData = !prev.some((existing: any) =>
-              JSON.stringify(existing) === JSON.stringify(newPayload)
-            );
+        // Update the events state with unique events
+        setEvents((prevEvents) => {
+          const existingEventIds = new Set(prevEvents.map((event) => event.eventId));
+          const uniqueNewEvents = newEvents.filter(
+            (event: IEvent) => !existingEventIds.has(event.eventId)
+          );
 
-            if (isNewData) {
-              return [...prev, ...newPayload];
-            }
-            return prev;
-          });
-        }
-
-        if (event.data.payload.url === "/factsCenter/pcUpcomingEvents") {
-          console.log('new Payload for pcUpcomingEvents:', newPayload);
-
-          // Update state with new data
-          setTournaments((prev) => {
-            const isNewData = !prev.some((existing: any) =>
-              JSON.stringify(existing) === JSON.stringify(newPayload)
-            );
-
-            if (isNewData) {
-              return [...prev, ...newPayload];
-            }
-            return prev;
-          });
-        }
+          return [...prevEvents, ...uniqueNewEvents];
+        });
       }
     });
   };
 
   // Initialize the message relay BEFORE injecting scripts
-  setupMessageRelay();
+  setupMessageRelay()
 
   const injectScript = (file: string) => {
     const script = document.createElement('script');
@@ -106,15 +91,38 @@ const ContentApp: React.FC<{ site: SiteKey }> = ({ site }) => {
   injectScript('interceptor.js');
 
   const Component = siteComponents[site];
-  return <Component tournaments={tournaments} />;
+  return <Component tournaments={tournaments} events={events} />;
 };
 
 // Mounting logic
 const mountApp = (): void => {
   const site = detectSite(window.location.href);
 
-  let container = document.getElementById('betbuddy-content-root');
-  if (!container) {
+  let container;
+
+  if (site === 'sportybet') {
+    const betslipDiv = document.getElementById('j_betslip');
+    if (betslipDiv) {
+      betslipDiv.style.position = 'relative';
+      container = document.createElement('div');
+      container.id = 'betbuddy-controls';
+      // Set dark gray background and white text
+      // container.style.backgroundColor = '#333';
+      container.style.color = 'white';
+      // container.style.padding = '10px';
+      // container.style.position = 'absolute';
+      // container.style.top = '0';
+      // container.style.left = '0';
+      container.style.width = '100%';
+      // container.style.height = '100px';
+
+      container.style.zIndex = '9999';
+      betslipDiv.insertBefore(container, betslipDiv.firstChild);
+    } else {
+      console.error('j_betslip not found');
+      return;
+    }
+  } else {
     container = document.createElement('div');
     container.id = 'betbuddy-content-root';
     document.body.appendChild(container);
